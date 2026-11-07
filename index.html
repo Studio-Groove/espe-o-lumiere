@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andressa Branco | Nail Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Playfair Display & Montserrat & Great Vibes) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#FFF099',
+                            DEFAULT: '#D4AF37',
+                            dark: '#AA820A',
+                            metallic: 'linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%)'
+                        },
+                        darkbg: '#121212',
+                        darkcard: '#1A1A1A'
+                    },
+                    fontFamily: {
+                        cursive: ['"Great Vibes"', 'cursive'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos e Efeitos Dourados Personalizados */
+        body {
+            background-color: #0E0E0E;
+            color: #E0E0E0;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Fundo com Linhas Orgânicas Onduladas estilo a imagem */
+        .bg-gold-lines {
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(170, 130, 10, 0.08) 0%, transparent 40%);
+        }
+
+        /* SVG decorativo de fundo simulando a curva dourada */
+        .gold-curve-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
+        }
+
+        /* Molduras e Bordas Douradas Metálicas */
+        .gold-border-box {
+            position: relative;
+            background: rgba(18, 18, 18, 0.85);
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #AA771C) 1;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(212, 175, 55, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gold-border-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.2);
+            background: rgba(25, 25, 25, 0.95);
+        }
+
+        /* Texto Dourado com Gradiente */
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #FFE494 0%, #D4AF37 40%, #E6C667 70%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Moldura Circular da Foto */
+        .gold-avatar-frame {
+            padding: 4px;
+            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Animação de Shimmer */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .shimmer-effect {
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,223,0,0.15) 50%, 
+                rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        /* Modais */
+        .modal-backdrop {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between relative bg-gold-lines px-4 py-8">
+
+    <!-- Linhas Douradas Orgânicas no Fundo -->
+    <svg class="gold-curve-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path fill="none" stroke="url(#goldGradient)" stroke-width="3" d="M -100 200 C 300 50, 400 600, 800 300 C 1200 0, 1300 700, 1600 400" />
+        <path fill="none" stroke="url(#goldGradient)" stroke-width="1.5" opacity="0.6" d="M -100 300 C 200 150, 500 700, 900 200 C 1100 100, 1400 800, 1600 500" />
+        <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#BF953F" />
+                <stop offset="30%" stop-color="#FCF6BA" />
+                <stop offset="70%" stop-color="#B38728" />
+                <stop offset="100%" stop-color="#AA771C" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- CONTAINER PRINCIPAL (Mobile Container) -->
+    <main class="w-full max-w-md z-10 flex flex-col items-center">
+
+        <!-- FOTO DE PERFIL & CABEÇALHO -->
+        <header class="flex flex-col items-center text-center mb-6">
+            <div class="gold-avatar-frame mb-3 relative group">
+                <!-- Foto de Capa / Perfil -->
+                <img id="profileImg" 
+                     src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=400&auto=format&fit=crop" 
+                     alt="Andressa Branco" 
+                     class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-black"
+                     onerror="this.src='https://placehold.co/150x150/1A1A1A/D4AF37?text=AB'">
+                
+                <!-- Ícone verificado sutil -->
+                <span class="absolute bottom-1 right-1 bg-black text-amber-400 p-1.5 rounded-full border border-yellow-500 text-xs shadow-lg">
+                    <i class="fa-solid fa-gem"></i>
+                </span>
+            </div>
+
+            <!-- NOME DA MARCA -->
+            <h1 class="font-cursive text-4xl sm:text-5xl font-normal tracking-wide gold-text-gradient drop-shadow-md my-1">
+                Andressa Branco
+            </h1>
+            
+            <!-- SUBTÍTULO -->
+            <p class="font-sans text-xs tracking-[0.35em] text-yellow-100 font-semibold uppercase opacity-90 border-t border-b border-yellow-600/30 py-1 px-4 mt-1">
+                NAIL DESIGNER
+            </p>
+        </header>
+
+        <!-- LISTA DE BOTÕES / LINKS -->
+        <div class="w-full space-y-4">
+
+            <!-- BOTÃO 1: SOBRE ALONGAMENTOS (Link Externo Canva) -->
+            <a href="https://moldedesucesso.my.canva.site/mais-informa-es" target="_blank" rel="noopener"
+               class="w-full gold-border-box shimmer-effect py-3.5 px-4 flex items-center justify-between group rounded-sm text-left block">
+                <div class="w-10 flex justify-center text-xl text-amber-300 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-hand-sparkles"></i>
+                </div>
+                <div class="flex-1 text-center font-semibold text-xs sm:text-sm tracking-widest text-amber-100 uppercase">
+                    SOBRE ALONGAMENTOS
+                </div>
+                <div class="w-10 flex justify-center text-xs text-yellow-500/70 group-hover:text-amber-300">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </a>
+
+            <!-- BOTÃO 2: AGENDE SEU HORÁRIO (Modal WhatsApp Agendamento) -->
+            <button onclick="openModal('modalAgendamento')" 
+                    class="w-full gold-border-box shimmer-effect py-3.5 px-4 flex items-center justify-between group rounded-sm text-left">
+                <div class="w-10 flex justify-center text-xl text-amber-300 group-hover:scale-110 transition-transform">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <div class="flex-1 text-center font-semibold text-xs sm:text-sm tracking-widest text-amber-100 uppercase">
+                    AGENDE SEU HORÁRIO
+                </div>
+                <div class="w-10 flex justify-center text-xs text-yellow-500/70 group-hover:text-amber-300">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </button>
+
+            <!-- BOTÃO 3: INSCREVA-SE NO CANAL (Link Externo YouTube) -->
+            <a href="https://www.youtube.com/@andressanails" target="_blank" rel="noopener"
+               class="w-full gold-border-box shimmer-effect py-3.5 px-4 flex items-center justify-between group rounded-sm">
+                <div class="w-10 flex justify-center text-xl text-amber-300 group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+                <span class="flex-1 text-center font-semibold text-xs sm:text-sm tracking-widest text-amber-100 uppercase">
+                    INSCREVA-SE NO CANAL
+                </span>
+                <div class="w-10 flex justify-center text-xs text-yellow-500/70 group-hover:text-amber-300">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </a>
+
+            <!-- BOTÃO 4: CURSOS / DÚVIDAS (Modal WhatsApp Cursos) -->
+            <button onclick="openModal('modalCursos')" 
+                    class="w-full gold-border-box shimmer-effect py-3.5 px-4 flex items-center justify-between group rounded-sm text-left">
+                <div class="w-10 flex justify-center text-xl text-amber-300 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="flex-1 text-center font-semibold text-xs sm:text-sm tracking-widest text-amber-100 uppercase">
+                    CURSOS & CAPACITAÇÃO
+                </div>
+                <div class="w-10 flex justify-center text-xs text-yellow-500/70 group-hover:text-amber-300">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </button>
+
+            <!-- BOTÃO 5: PERFIL PESSOAL (Link Externo Instagram) -->
+            <a href="http://intagram.com/DEESSAA_29" target="_blank" rel="noopener"
+               class="w-full gold-border-box shimmer-effect py-3.5 px-4 flex items-center justify-between group rounded-sm">
+                <div class="w-10 flex justify-center text-xl text-amber-300 group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <span class="flex-1 text-center font-semibold text-xs sm:text-sm tracking-widest text-amber-100 uppercase">
+                    PERFIL PESSOAL
+                </span>
+                <div class="w-10 flex justify-center text-xs text-yellow-500/70 group-hover:text-amber-300">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </a>
+
+            <!-- BOTÃO 6: PARCERIAS (Modal WhatsApp Parcerias) -->
+            <button onclick="openModal('modalParcerias')" 
+                    class="w-full gold-border-box shimmer-effect py-3.5 px-4 flex items-center justify-between group rounded-sm text-left">
+                <div class="w-10 flex justify-center text-xl text-amber-300 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <div class="flex-1 text-center font-semibold text-xs sm:text-sm tracking-widest text-amber-100 uppercase">
+                    PARCERIAS
+                </div>
+                <div class="w-10 flex justify-center text-xs text-yellow-500/70 group-hover:text-amber-300">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </button>
+
+        </div>
+
+        <!-- REDES SOCIAIS ADICIONAIS -->
+        <div class="flex items-center justify-center space-x-6 mt-8 mb-4">
+            <a href="https://api.whatsapp.com/send?phone=5511954844089" target="_blank" class="text-amber-200/70 hover:text-amber-300 text-xl transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="http://intagram.com/DEESSAA_29" target="_blank" class="text-amber-200/70 hover:text-amber-300 text-xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@andressanails" target="_blank" class="text-amber-200/70 hover:text-amber-300 text-xl transition-colors"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="z-10 text-center text-[10px] text-zinc-500 tracking-widest uppercase mt-6">
+        <p>© <span id="year"></span> ANDRESSA BRANCO NAILS. TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+
+    <!-- ==================== MODAIS INTERATIVOS ==================== -->
+
+    <!-- MODAL 2: AGENDE SEU HORÁRIO -->
+    <div id="modalAgendamento" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-yellow-600/50 rounded-lg w-full max-w-lg p-6 relative max-h-[90vh] overflow-y-auto text-zinc-300">
+            <button onclick="closeModal('modalAgendamento')" class="absolute top-4 right-4 text-amber-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-serif text-2xl gold-text-gradient font-bold mb-1 text-center">Agendar Horário</h3>
+            <p class="text-center text-xs text-zinc-400 mb-6">Escolha o serviço para iniciar a conversa no WhatsApp</p>
+
+            <form id="bookingForm" onsubmit="sendWhatsAppBooking(event)" class="space-y-4 text-xs sm:text-sm">
+                <div>
+                    <label class="block text-amber-200 mb-1 font-medium">Seu Nome:</label>
+                    <input type="text" id="clientName" required placeholder="Digite seu nome completo" 
+                           class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                </div>
+
+                <div>
+                    <label class="block text-amber-200 mb-1 font-medium">Serviço Desejado:</label>
+                    <select id="serviceSelect" class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                        <option value="Alongamento em Fibra de Vidro">Alongamento em Fibra de Vidro</option>
+                        <option value="Banho de Gel / Blindagem">Banho de Gel / Blindagem</option>
+                        <option value="Manutenção de Alongamento">Manutenção de Alongamento</option>
+                        <option value="Esmaltação em Gel">Esmaltação em Gel</option>
+                        <option value="Remoção + Cuticulagem">Remoção + Cuticulagem</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-amber-200 mb-1 font-medium">Dia Preferido:</label>
+                        <input type="date" id="bookingDate" required 
+                               class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-amber-200 mb-1 font-medium">Horário/Turno:</label>
+                        <select id="bookingTime" class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                            <option value="Manhã (09h - 12h)">Manhã (09h - 12h)</option>
+                            <option value="Tarde (13h - 17h)">Tarde (13h - 17h)</option>
+                            <option value="Noite (18h - 20h)">Noite (18h - 20h)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" 
+                        class="w-full mt-4 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded uppercase tracking-wider text-xs flex items-center justify-center space-x-2 shadow-lg transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Solicitar Horário no WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: CURSOS & CAPACITAÇÃO -->
+    <div id="modalCursos" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-yellow-600/50 rounded-lg w-full max-w-lg p-6 relative max-h-[85vh] overflow-y-auto text-zinc-300">
+            <button onclick="closeModal('modalCursos')" class="absolute top-4 right-4 text-amber-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-serif text-2xl gold-text-gradient font-bold mb-1 text-center">Cursos & Capacitação</h3>
+            <p class="text-center text-xs text-zinc-400 mb-6">Tire suas dúvidas ou solicite informações de turmas</p>
+
+            <form onsubmit="sendWhatsAppCourse(event)" class="space-y-4 text-xs sm:text-sm">
+                <div>
+                    <label class="block text-amber-200 mb-1 font-medium">Seu Nome:</label>
+                    <input type="text" id="courseClientName" required placeholder="Digite seu nome" 
+                           class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                </div>
+
+                <div>
+                    <label class="block text-amber-200 mb-1 font-medium">Qual modalidade de curso deseja saber mais?</label>
+                    <select id="courseType" class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                        <option value="Curso Presencial Iniciante">Curso Presencial (Iniciante)</option>
+                        <option value="Aperfeiçoamento Avançado">Aperfeiçoamento / Especialização</option>
+                        <option value="Curso Online">Curso Online</option>
+                        <option value="Informações sobre próximas turmas">Próximas Turmas e Valores</option>
+                    </select>
+                </div>
+
+                <button type="submit" 
+                        class="w-full mt-4 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded uppercase tracking-wider text-xs flex items-center justify-center space-x-2 shadow-lg transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Tirar dúvidas sobre cursos</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 6: PARCERIAS E CONTATO COMERCIAL -->
+    <div id="modalParcerias" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-yellow-600/50 rounded-lg w-full max-w-lg p-6 relative text-zinc-300">
+            <button onclick="closeModal('modalParcerias')" class="absolute top-4 right-4 text-amber-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-4">
+                <i class="fa-solid fa-handshake text-3xl text-amber-400 mb-1"></i>
+                <h3 class="font-serif text-2xl gold-text-gradient font-bold">Propostas de Parceria</h3>
+                <p class="text-xs text-zinc-400">Envie uma proposta comercial direto para o WhatsApp</p>
+            </div>
+
+            <form onsubmit="sendWhatsAppPartnership(event)" class="space-y-4 text-xs sm:text-sm">
+                <div>
+                    <label class="block text-amber-200 mb-1 font-medium">Nome da Empresa / Marca:</label>
+                    <input type="text" id="partnerCompany" required placeholder="Ex: Marca de Esmaltes X" 
+                           class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                </div>
+
+                <div>
+                    <label class="block text-amber-200 mb-1 font-medium">Tipo de Proposta:</label>
+                    <select id="partnerType" class="w-full bg-zinc-800 border border-zinc-700 rounded p-2.5 text-white focus:outline-none focus:border-yellow-500">
+                        <option value="Divulgação em Redes Sociais">Divulgação / Publi</option>
+                        <option value="Parceria de Produtos / Recebidos">Parceria de Produtos / Envio de Kit</option>
+                        <option value="Presença em Evento / Workshop">Evento / Workshop</option>
+                        <option value="Outro tipo de parceria">Outro tipo de parceria</option>
+                    </select>
+                </div>
+
+                <button type="submit" 
+                        class="w-full mt-4 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded uppercase tracking-wider text-xs flex items-center justify-center space-x-2 shadow-lg transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Enviar proposta no WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Ano Atual para o Footer
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Número de WhatsApp Único (5511954844089)
+        const phone = "5511954844089";
+
+        // Controle de Modais
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // 1. Mensagem de Agendamento
+        function sendWhatsAppBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('serviceSelect').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+
+            const dateFormatted = date ? date.split('-').reverse().join('/') : 'A combinar';
+
+            const message = `Olá, Andressa! Meu nome é *${name}*.%0A%0AGostaria de agendar um horário com você!%0A💅 *Serviço:* ${service}%0A📅 *Preferência de Data:* ${dateFormatted}%0A⏰ *Turno:* ${time}%0A%0AAguardo confirmação de horários disponíveis!`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${message}`, '_blank');
+            closeModal('modalAgendamento');
+        }
+
+        // 2. Mensagem de Cursos
+        function sendWhatsAppCourse(event) {
+            event.preventDefault();
+            const name = document.getElementById('courseClientName').value;
+            const courseType = document.getElementById('courseType').value;
+
+            const message = `Olá, Andressa! Meu nome é *${name}*.%0A%0ATenho interesse nos seus cursos de Nail Designer e gostaria de tirar algumas dúvidas sobre: *${courseType}*!`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${message}`, '_blank');
+            closeModal('modalCursos');
+        }
+
+        // 3. Mensagem de Parcerias
+        function sendWhatsAppPartnership(event) {
+            event.preventDefault();
+            const company = document.getElementById('partnerCompany').value;
+            const partnerType = document.getElementById('partnerType').value;
+
+            const message = `Olá, Andressa! Sou da empresa *${company}* e gostaria de conversar sobre uma parceria referente a: *${partnerType}*.`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${message}`, '_blank');
+            closeModal('modalParcerias');
+        }
+    </script>
+</body>
+</html>
